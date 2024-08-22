@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>On-Scroll SVG Filter Animations on Text | Codrops</title>
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://use.typekit.net/dyb6swr.css">
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<!--script src="//tympanus.net/codrops/adpacks/analytics.js"></script-->
+	</head>
+	<body class="loading">
+		<main>
+			<svg class="hidden">
+        <defs>
+          <filter id="goo-1">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="	1 0 0 0 0  
+                0 1 0 0 0  
+                1 0 1 0 0  
+                0 0 0 13 -6" result="goo"></feColorMatrix>
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+          </filter>
+          <filter id="goo-2">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="	1 0 0 0 0  
+                0 1 0 0 0  
+                1 0 1 0 0  
+                0 0 0 12 -4" result="goo"></feColorMatrix>
+            <feTurbulence type="turbulence" baseFrequency="1" numOctaves="1" seed="2" result="noise"></feTurbulence>
+            <feDisplacementMap in="goo" in2="noise" scale="0" result="displacement"></feDisplacementMap>
+            <feComposite in="SourceGraphic" in2="displacement" operator="atop"></feComposite>
+          </filter>
+          <filter id="goo-3">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="	1 0 0 0 0  
+                0 1 0 0 0  
+                1 0 1 0 0  
+                0 0 0 15 -8" result="goo"></feColorMatrix>
+            <feTurbulence type="fractalNoise" baseFrequency="0.1 0.5" numOctaves="5" seed="2" result="noise"></feTurbulence>
+            <feDisplacementMap in="goo" in2="noise" scale="0" result="displacement"></feDisplacementMap>
+            <feComposite in="SourceGraphic" in2="displacement" operator="atop"></feComposite>
+          </filter>
+          <filter id="goo-4">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="	1 0 0 0 0  
+                0 1 0 0 0  
+                0 0 1 0 0  
+                0 0 0 18 -8" result="goo"></feColorMatrix>
+            <feTurbulence type="fractalNoise" baseFrequency="1 0.01" numOctaves="1" seed="1" result="noise"></feTurbulence>
+            <feDisplacementMap in="goo" in2="noise" scale="0" result="displacement"></feDisplacementMap>
+            <feComposite in="SourceGraphic" in2="displacement" operator="atop"></feComposite>
+          </filter>
+          <filter id="goo-5">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="	1 0 0 0 0  
+                0 1 0 0 0  
+                0 0 1 0 0 
+                0 0 0 14 -1" result="goo"></feColorMatrix>
+            <feTurbulence type="fractalNoise" baseFrequency="0.009 1" numOctaves="1" seed="1" result="noise"></feTurbulence>
+            <feDisplacementMap in="goo" in2="noise" scale="0" result="displacement"></feDisplacementMap>
+            <feComposite in="SourceGraphic" in2="displacement" operator="atop"></feComposite>
+          </filter>
+          <filter id="goo-6">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="	1 0 0 0 0  
+                0 1 0 0 0  
+                1 0 1 0 0  
+                0 0 0 12 -8" result="goo"></feColorMatrix>
+            <feTurbulence type="fractalNoise" baseFrequency="1" numOctaves="1" seed="1" result="noise"></feTurbulence>
+            <feDisplacementMap in="goo" in2="noise" scale="0" result="displacement"></feDisplacementMap>
+            <feComposite in="SourceGraphic" in2="displacement" operator="atop"></feComposite>
+          </filter>
+          <filter id="goo-7">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="	1 0 0 0 0  
+                0 1 0 0 0  
+                0 0 1 0 0  
+                0 0 0 18 -5" result="goo"></feColorMatrix>
+            <feTurbulence type="fractalNoise" baseFrequency="0.07 0.3" numOctaves="1" seed="1" result="noise"></feTurbulence>
+            <feDisplacementMap in="goo" in2="noise" scale="0" result="displacement"></feDisplacementMap>
+            <feComposite in="SourceGraphic" in2="displacement" operator="atop"></feComposite>
+          </filter>
+        </defs>     
+      </svg>
+			<header class="frame frame--header">
+				<h1 class="frame__title"><a href="https://tympanus.net/codrops/demos/?tag=scroll">#Scroll-based</a> SVG <a href="https://tympanus.net/codrops/demos/?tag=filter">#Filter</a> Animations On <a href="https://tympanus.net/codrops/demos/?tag=typography">#Text</a></h1> 
+				<nav class="frame__links">
+					<a href="https://tympanus.net/codrops/?p=80141">Article</a>
+					<a href="https://tympanus.net/codrops/demos/">All demos</a>
+					<a href="https://github.com/codrops/OnScrollSVGFilterText/">GitHub</a>
+				</nav>
+			</header>
+			<div class="deco">
+				<div class="deco__item" style="background-image:url(img/12.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/9.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/3.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/1.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/5.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/4.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/6.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/7.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/2.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/8.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/11.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/10.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/13.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/14.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/15.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/16.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/17.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/18.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/19.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/20.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/21.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/1.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/2.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/3.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/4.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/5.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/6.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/7.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/8.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/9.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/10.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/11.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/12.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/13.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/14.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/15.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/16.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/17.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/18.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/19.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/20.jpg)"></div>
+				<div class="deco__item" style="background-image:url(img/21.jpg)"></div>
+			</div>
+			<div class="content content--intro">
+				<p>The wavelength gently grows<br>
+				Coercive notions re-evolve<br>
+				A universe is trapped inside a tear</p>
+			</div>
+			<div class="content content--full">
+				<h2 data-filter="goo-1" data-script="filter1" class="size-large end font-1">Wave</h2>
+				<button class="end replay">Replay</button>
+			</div>
+			<div class="content content--full">
+				<p class="end">Shattered dreams of what could be<br>
+				The past and future blur into a line</p>
+			</div>
+			<div class="content content--full">
+				<h2 data-filter="goo-2" data-script="filter2" class="size-xlarge spaced blendmode-1 font-2 color-1 center">Dreams</h2>
+				<button class="center replay">Replay</button>
+			</div>
+			<div class="content content--full">
+				<p class="end">It resonates the core<br>
+				Creates unnatural laws<br>
+				Replaces love and happiness<br>
+			  with fear</p>
+				<h2 data-filter="goo-3" data-script="filter3" class="size-medium start blendmode-1 color-3 font-1">Unreal</h2>
+				<button class="start replay">Replay</button>
+			</div>
+			<div class="content content--full">
+				<p class="center">Dissolve<br>
+				Reality's a fragile veil<br>
+				Illusions we’ve compiled<br>
+				Now unravel in the wind</p>
+			</div>
+			<div class="content content--full">
+				<h2 data-filter="goo-4" data-script="filter4" class="size-large center color-2 spaced font-1">Fear</h2>
+				<button class="center replay">Replay</button>
+			</div>
+			<div class="content content--full">
+				<p class="end">How much deception can you take?<br>
+				How many lies will you create?</p>
+			</div>
+			<div class="content content--full">
+				<h2 data-filter="goo-5" data-script="filter5" class="size-large spaced end font-2">Deception</h2>
+				<button class="end replay">Replay</button>
+			</div>
+			<div class="content">
+			    <p>And they are breaking through<br>
+					They are breaking through<br>
+					We are losing control</p>
+			</div>
+			<div class="content content--full">
+			    <h2 data-filter="goo-6" data-script="filter6" class="size-large spaced center font-1">Delete</h2>
+			    <button class="center replay">Replay</button>
+			    <p class="end">Invisible to all<br>
+					The mind becomes a wall<br>
+					All of history deleted <br>
+				  with one stroke</p>
+			</div>
+			<div class="content content--full">
+			    <h2 data-filter="goo-7" data-script="filter7" class="size-large spaced center font-2">All of it</h2>
+			    <button class="center replay">Replay</button>
+			</div>
+			<footer class="frame frame--footer">
+				<span>Created by <a href="https://x.com/codrops">@codrops</a></span>
+				<a href="https://tympanus.net/codrops/demos/">Browse all demos</a>
+				<a href="https://tympanus.net/codrops/collective/">Subscribe for frontend news</a>
+			</footer>  
+		</main>
+		<!--script src="https://tympanus.net/codrops/adpacks/cda_sponsor.js"></script-->
+    <!-- JavaScript dependencies -->
+		<!-- GSAP library -->
+		<script src="js/gsap.min.js"></script>
+		<!-- GSAP ScrollTrigger plugin -->
+		<script src="js/ScrollTrigger.min.js"></script>
+
+    <!-- ImagesLoaded -->
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    
+    <!-- Add (Lenis) smooth scroll -->
+		<script src="js/lenis.min.js"></script>
+		<script src="js/smoothscroll.js"></script>
+
+		<!-- Scripts for the effect -->
+		<script type="module" src="js/main.js"></script>
+	</body>
+</html>
