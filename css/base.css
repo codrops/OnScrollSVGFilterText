@@ -128,6 +128,7 @@ main::before {
 	margin-bottom: 10vh;
 	grid-template-columns: auto;
 	grid-template-areas: 'title' 'links' 'sponsor';
+	align-items: start;
 }
 
 .frame--footer {
@@ -137,10 +138,6 @@ main::before {
 
 .frame--footer a:last-child {
 	justify-self: end;
-}
-
-.frame #cdawrap {
-	justify-self: start;
 }
 
 .frame a {
@@ -346,9 +343,6 @@ main::before {
 		gap: 3rem;
 		grid-template-columns: auto auto 1fr;
 		grid-template-areas: 'title links sponsor';
-	}
-	.frame #cdawrap {
-		justify-self: end;
 	}
 	.deco {
 		grid-template-columns: repeat(5,auto);
